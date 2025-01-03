@@ -2,6 +2,10 @@ pluginInfo {
     //display name of the plugin
     pluginName = "examplePlugin"
 
+
+    //todo fix error of this
+    description = "A example plugin"
+
     // Version displayed to the user.
     versionName = "1.0-ALPHA"
 
