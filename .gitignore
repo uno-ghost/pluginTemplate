@@ -1,6 +1,6 @@
-sdk/**
+sdk/xed-editor-sdk.jar
 output/**
-
+.idea
 .gradle
 build/
 !gradle/wrapper/gradle-wrapper.jar
