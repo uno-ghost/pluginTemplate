@@ -1,39 +1,43 @@
 pluginInfo {
-    //display name of the plugin
+    // The display name of the plugin.
     pluginName = "examplePlugin"
+    description = "An example plugin"
 
-
-    //todo fix error of this
-    description = "A example plugin"
-
-    // Version displayed to the user.
+    // The version name displayed to the user.
     versionName = "1.0-ALPHA"
 
-    // Increment this with each update to avoid plugin update issues.
+    // Increment this value with each update to ensure proper plugin updates
+    // and to avoid potential conflicts or outdated installations.
     versionCode = 1
 
-    // Unique package name to avoid conflicts.
+    // A unique package name to prevent conflicts with other plugins.
     packageName = "com.example"
 
-    // Main entry class for the plugin.
+    // The main entry point class for the plugin. This class must extend `ExtensionAPI`.
     mainClass = "com.example.Main"
 
-    // Optional: Settings class for user customization.
-    settingsClass = "com.example.Settings"
-
-    // Developer's name.
+    // The name of the plugin developer.
     author = "Your Name"
 
-    // Optional: URL for documentation or website.
+    // Optional: URL for the plugin's documentation, website, or source code repository.
     pluginWebsite = null
+
+
+    //NOTE : This is not implemented
+    // Optional: The class for settings or configuration, allowing users to customize the plugin.
+    // Uncomment and set this if the plugin provides customizable settings.
+    // settingsClass = "com.example.Settings"
 }
 
 dependencies {
-    // Add any required external libraries here.
+    // Add any external libraries required by the plugin here.
+
+    // Note: Warnings about this library not being packaged can be safely ignored.
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.8.1")
 }
 
 repositories {
-    // Add extra repositories for dependencies if needed.
+    // Specify additional repositories for dependency resolution if needed.
     mavenCentral()
 }
 
@@ -44,4 +48,5 @@ kotlin {
 plugins {
     kotlin("jvm") version "2.0.10"
     id("com.rk.XedSdk")
+    id("java")
 }
