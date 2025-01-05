@@ -28,7 +28,7 @@ mkdir -p pluginTemplate/sdk
 Run the following Gradle command to build your plugin:
 
 ```bash
-./gradlew assemble
+bash build.sh
 ```
 
 ### 4. Locate the Build Output
@@ -36,7 +36,5 @@ Run the following Gradle command to build your plugin:
 After a successful build, your plugin will be available at:
 
 ```
-output/yourplugin.xp
+output/
 ```
-
-The **`.xp`** file extension represents an **Xed-Editor Plugin**.
