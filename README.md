@@ -1,4 +1,4 @@
-# Plugin Template for Xed-Editor (Karbon)
+# Plugin Template for Xed-Editor
 
 This project serves as a template for creating plugins for **Xed-Editor (Karbon)**.
 
