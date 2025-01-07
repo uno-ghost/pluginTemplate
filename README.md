@@ -13,7 +13,7 @@ Start by cloning this repository and navigating into its directory:
 ```bash
 git clone https://github.com/Xed-Editor/pluginTemplate
 cd pluginTemplate
-mkdir -p pluginTemplate/sdk
+mkdir -p sdk
 ```
 
 ### 2. Download the SDK
