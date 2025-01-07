@@ -63,4 +63,11 @@ public class Main extends ExtensionAPI {
         // or reduce memory usage to ensure the app remains responsive.
         // Note that this method's invocation is not guaranteed in all low-memory situations.
     }
+
+    @Override
+    public void onMainActivityDestroyed(){
+    
+
+    }
+
 }
