@@ -18,8 +18,9 @@ mkdir -p pluginTemplate/sdk
 
 ### 2. Download the SDK
 
-1. Download the latest **`xed-editor-sdk.jar`** from the [GitHub Actions](https://github.com/RohitKushvaha01/pluginTemplate).  
-   **Note**: Ensure the SDK version matches the release version of Xed-Editor you are targeting.  
+1. Download the latest **`xed-editor-sdk.jar`** from the [Telegram group](https://github.com).  
+
+   **Note**: If certain APIs or Classes are not available in your plugin then just update the SDK jar.  
 
 2. Place the downloaded **`xed-editor-sdk.jar`** file into the `sdk` directory of your repository.
 
