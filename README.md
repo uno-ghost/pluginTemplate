@@ -26,7 +26,7 @@ mkdir -p sdk
 
 ### 3. Build the Plugin
 
-Run the following Gradle command to build your plugin:
+Run the following command to build your plugin:
 
 ```bash
 bash build.sh
