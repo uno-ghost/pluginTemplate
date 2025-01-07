@@ -39,3 +39,5 @@ After a successful build, your plugin will be available at:
 ```
 output/
 ```
+
+there should be a file with .plugin extension this is your final file. you can install this from the app
