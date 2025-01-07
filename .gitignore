@@ -1,5 +1,6 @@
 sdk/xed-editor-sdk.jar
 output/**
+.idea/**
 .idea
 .gradle
 build/
