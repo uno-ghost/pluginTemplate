@@ -44,6 +44,16 @@ public class Main extends ExtensionAPI {
 
 
         //NOTE : this method might get called before onPluginLoaded
+
+        rkUtils.INSTANCE.runOnUiThread(() -> {
+            // The ApplicationContextKt.application object always provides the application context.
+            // If you need an instance of the main activity, you can retrieve it using:
+            // MainActivity.activityRef.get()
+
+            // Display a toast message on the UI thread as an example of interacting with the app's UI.
+            Context context = ApplicationContextKt.application;
+            Toast.makeText(context, "ExamplePlugin : on app launched", Toast.LENGTH_SHORT).show();
+        });
     }
 
     @Override
