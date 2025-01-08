@@ -64,5 +64,11 @@ public class Main extends ExtensionAPI {
         // Note that this method's invocation is not guaranteed in all low-memory situations.
     }
 
+    @Override
+    public void onMainActivityDestroyed() {
+        //called when main activity is destroyed
+
+    }
+
 
 }
