@@ -1,4 +1,4 @@
-//don't forget to change the package name
+// Remember to change the package name to match your project structure.
 package com.example;
 
 import android.content.Context;
@@ -7,78 +7,79 @@ import com.rk.extension.ExtensionAPI;
 import com.rk.libcommons.ApplicationContextKt;
 import com.rk.xededitor.rkUtils;
 
-// This class must always have an empty constructor.
+// This class must always include an empty constructor.
+// It serves as the entry point for the plugin and interacts with the host app.
 public class Main extends ExtensionAPI {
 
     @Override
     public void onPluginLoaded() {
-        // This example is written in Java for accessibility reasons.
-        // It is recommended to use Kotlin for more concise and modern code.
+        // This method is called when the plugin is loaded.
+        // This example uses Java for demonstration, but Kotlin is recommended
+        // for its concise and modern syntax.
 
-        // Note: When interacting with Kotlin singleton objects (e.g., rkUtils) from Java,
-        // you must use the INSTANCE keyword to access their members or methods.
+        // IMPORTANT: When calling Kotlin singleton objects (e.g., rkUtils) from Java,
+        // use the INSTANCE keyword to access their methods or fields.
 
-        // Plugins typically run on a background thread. To perform UI-related operations,
-        // you must switch to the UI thread. This ensures that UI updates do not cause runtime errors.
+        // Plugins generally operate on background threads. To perform any UI-related actions,
+        // you must switch to the UI thread to avoid runtime exceptions.
+
         rkUtils.INSTANCE.runOnUiThread(() -> {
-            // The ApplicationContextKt.application object always provides the application context.
-            // If you need an instance of the main activity, you can retrieve it using:
-            // MainActivity.activityRef.get()
+            // Use the ApplicationContextKt.application object to access the application context.
+            // To get the main activity instance, use: MainActivity.activityRef.get()
 
-            // Display a toast message on the UI thread as an example of interacting with the app's UI.
+            // Example: Show a Toast message when the plugin is loaded.
             Context context = ApplicationContextKt.application;
             Toast.makeText(context, "Plugin has been loaded", Toast.LENGTH_SHORT).show();
         });
 
-        // Additional plugin-specific initialization code can be placed here.
-
-        // Keep in mind that this method will only be called once when the plugin is loaded.
+        // Add any additional initialization logic for your plugin here.
+        // Note: This method is called only once when the plugin is loaded.
     }
 
     @Override
-    public void onAppLaunch() {
+    public void onAppCreated() {
+        // This method is triggered after the app's main activity almost completes its onCreate method.
+        // You can use this to perform setup tasks that depend on the activity being initialized.
+    }
 
-        // This method is called when the app launches.
-        // However, its execution is not guaranteed, as it depends on the app's lifecycle
-        // and how the plugin is initialized or loaded during the app's startup.
-
-
-        //NOTE : this method might get called before onPluginLoaded
+    @Override
+    public void onAppLaunched() {
+        // This method is called when the app is launched.
+        // Note: It might be called before onPluginLoaded, depending on the app's lifecycle.
 
         rkUtils.INSTANCE.runOnUiThread(() -> {
-            // The ApplicationContextKt.application object always provides the application context.
-            // If you need an instance of the main activity, you can retrieve it using:
-            // MainActivity.activityRef.get()
-
-            // Display a toast message on the UI thread as an example of interacting with the app's UI.
+            // Example: Show a Toast message when the app is launched.
             Context context = ApplicationContextKt.application;
-            Toast.makeText(context, "ExamplePlugin : on app launched", Toast.LENGTH_SHORT).show();
+            Toast.makeText(context, "ExamplePlugin: App launched", Toast.LENGTH_SHORT).show();
         });
+
+        // Add any additional logic to handle app launch events here.
     }
 
     @Override
     public void onAppPaused() {
+        // This method is called when the app is paused.
+        // Use this to pause any ongoing operations or release resources
+        // that are not needed while the app is in the paused state.
+        // Note: Its invocation is not guaranteed in all lifecycle situations.
+    }
 
+    @Override
+    public void onAppResumed() {
+        // This method is called when any activity in the app is resumed.
+        // Use this to restart paused operations or refresh the app's state if needed.
+    }
 
-        // This method is triggered when the app enters the paused state.
-        // Its invocation is not guaranteed and may depend on the app's lifecycle state.
-        // Use this method to perform tasks such as pausing ongoing activities or freeing resources
-        // that are not needed while the app is paused.
+    @Override
+    public void onAppDestroyed() {
+        // This method is triggered when the main activity is destroyed.
+        // Use this to clean up resources or perform final tasks before the app exits.
     }
 
     @Override
     public void onLowMemory() {
-        // This method is invoked when the system is running low on memory.
-        // It is an opportunity to clean up resources, release unused objects,
-        // or reduce memory usage to ensure the app remains responsive.
-        // Note that this method's invocation is not guaranteed in all low-memory situations.
+        // This method is called when the system is running low on memory.
+        // Use this to release unused resources or objects to free up memory.
+        // Note: This method might not always be triggered during low-memory situations.
     }
-
-    @Override
-    public void onMainActivityDestroyed() {
-        //called when main activity is destroyed
-
-    }
-
-
 }
