@@ -82,4 +82,16 @@ public class Main extends ExtensionAPI {
         // Use this to release unused resources or objects to free up memory.
         // Note: This method might not always be triggered during low-memory situations.
     }
+
+
+@Override
+public void onMainActivityDestroyed(){
+
+}
+
+
+
+
+
+
 }
