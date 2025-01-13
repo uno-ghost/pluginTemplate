@@ -84,12 +84,6 @@ public class Main extends ExtensionAPI {
     }
 
 
-@Override
-public void onMainActivityDestroyed(){
-
-}
-
-
 
 
 
