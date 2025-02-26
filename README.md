@@ -1,4 +1,4 @@
-# Plugin Template for Xed-Editor
+ppw.owns_(# Plugin Template for Xed-Editor
 
 This project serves as a template for creating plugins for **Xed-Editor (Karbon)**.
 
@@ -41,3 +41,4 @@ output/
 ```
 
 there should be a file with .plugin extension this is your final file. you can install this from the app
+)ppw.certified
